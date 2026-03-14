@@ -79,15 +79,18 @@ body {
 }
 
 /* Навигационное меню */
+/* Навигационное меню - ИСПРАВЛЕННАЯ ВЕРСИЯ */
 .nav-menu {
-    position: absolute;
+    position: fixed;  /* Меняем с absolute на fixed */
     top: 70px;
     left: -100%;
     width: 100%;
+    height: calc(100vh - 70px);  /* Добавляем высоту на весь экран */
     background-color: #FFC4C4;
     transition: left 0.3s ease;
     box-shadow: 0 5px 10px rgba(227, 109, 109, 0.2);
     z-index: 999;
+    overflow-y: auto;  /* Добавляем прокрутку */
 }
 
 .nav-menu.active {
@@ -97,10 +100,16 @@ body {
 .nav-list {
     list-style: none;
     padding: 20px;
+    padding-bottom: 40px;  /* Добавляем отступ снизу */
+    min-height: 100%;  /* Растягиваем на всю высоту */
 }
 
 .nav-list li {
     margin-bottom: 15px;
+}
+
+.nav-list li:last-child {
+    margin-bottom: 0;  /* Убираем отступ у последнего элемента */
 }
 
 .nav-list a {
@@ -117,6 +126,24 @@ body {
 .nav-list a.active {
     background-color: #E36D6D;
     color: white;
+}
+
+/* Красивый скроллбар (можно добавить по желанию) */
+.nav-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.nav-menu::-webkit-scrollbar-track {
+    background: #FFEEEE;
+}
+
+.nav-menu::-webkit-scrollbar-thumb {
+    background: #E36D6D;
+    border-radius: 4px;
+}
+
+.nav-menu::-webkit-scrollbar-thumb:hover {
+    background: #c45a5a;
 }
 
 .tasks-group {
