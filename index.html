@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Неориентированные графы | Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Подключаем Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+<body>
+    <!-- Шапка (Header) с бургер-меню -->
+    <header class="header">
+        <div class="container header-container">
+            <button class="burger-menu" id="burgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">Неориентированные графы</a>
+            </div>
+        </div>
+        
+        <!-- Выпадающее меню -->
+        <nav class="nav-menu" id="navMenu">
+            <ul class="nav-list">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li class="tasks-group">
+                    <span class="tasks-label">Задачи:</span>
+                    <ul class="tasks-list">
+                        <li><a href="task/task_0.html">Задача 0</a></li>
+                        <li><a href="task/task_1.html">Задача 1</a></li>
+                        <li><a href="task/task_2.html">Задача 2</a></li>
+                        <li><a href="task/task_3.html">Задача 3</a></li>
+                        <li><a href="task/task_4.html">Задача 4</a></li>
+                        <li><a href="task/task_5.html">Задача 5</a></li>
+                        <li><a href="task/task_6.html">Задача 6</a></li>
+                        <li><a href="task/task_7.html">Задача 7</a></li>
+                        <li><a href="task/task_8.html">Задача 8</a></li>
+                        <li><a href="task/task_9.html">Задача 9</a></li>
+                        <li><a href="task/task_10.html">Задача 10</a></li>
+                        <li><a href="task/task_11.html">Задача 11</a></li>
+                        <li><a href="task/task_12.html">Задача 12</a></li>
+                    </ul>
+                </li>
+                <li><a href="about_graphs.html">О графах</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Заголовок страницы -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Неориентированные графы</h1>
+                <p class="hero-subtitle">Научная конференция</p>
+            </div>
+        </section>
+
+        <!-- Карусель с разработчиками -->
+        <section class="developers">
+            <div class="container">
+                <h2 class="section-title">Разработчики проекта</h2>
+                <div class="owl-carousel owl-theme" id="developerCarousel">
+                    <!-- Карточка Грекова Яна -->
+                    <div class="developer-card" onclick="location.href='about_us.html';">
+                        <div class="developer-image">
+                            <img src="images/placeholder1.jpg" alt="Грекова Яна">
+                        </div>
+                        <h3 class="developer-name">Грекова Яна</h3>
+                        <p class="developer-role">Разработчик</p>
+                    </div>
+                    
+                    <!-- Карточка Закаулова Софья -->
+                    <div class="developer-card" onclick="location.href='about_us.html';">
+                        <div class="developer-image">
+                            <img src="images/placeholder2.jpg" alt="Закаулова Софья">
+                        </div>
+                        <h3 class="developer-name">Закаулова Софья</h3>
+                        <p class="developer-role">Разработчик</p>
+                    </div>
+                    
+                    <!-- Карточка Ринчиндоржиева Адиса -->
+                    <div class="developer-card" onclick="location.href='about_us.html';">
+                        <div class="developer-image">
+                            <img src="images/placeholder3.jpg" alt="Ринчиндоржиева Адиса">
+                        </div>
+                        <h3 class="developer-name">Ринчиндоржиева Адиса</h3>
+                        <p class="developer-role">Разработчик</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Кнопка "Список задач" -->
+        <section class="cta-section">
+            <div class="container">
+                <a href="task_list.html" class="cta-button">Список задач</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал (Footer) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-links">
+                <a href="about_us.html">О нас</a>
+                <a href="about_the_conference.html">О конференции</a>
+                <a href="about_graphs.html">О графах</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Неориентированные графы. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем скрипты -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/js_burger_and_owlcarousel.js"></script>
+</body>
+</html>

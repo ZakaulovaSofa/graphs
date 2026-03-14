@@ -1,0 +1,895 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #6D3A3A;
+    background-color: #FFEEEE;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Стили для шапки */
+.header {
+    background-color: #E36D6D;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(227, 109, 109, 0.3);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(109, 58, 58, 0.2);
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.burger-menu span {
+    width: 30px;
+    height: 3px;
+    background: white;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Навигационное меню */
+.nav-menu {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background-color: #FFC4C4;
+    transition: left 0.3s ease;
+    box-shadow: 0 5px 10px rgba(227, 109, 109, 0.2);
+    z-index: 999;
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 20px;
+}
+
+.nav-list li {
+    margin-bottom: 15px;
+}
+
+.nav-list a {
+    color: #6D3A3A;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    background-color: #E36D6D;
+    color: white;
+}
+
+.tasks-group {
+    margin-bottom: 15px;
+}
+
+.tasks-label {
+    display: block;
+    color: #6D3A3A;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+.tasks-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.tasks-list li {
+    margin-bottom: 8px;
+}
+
+.tasks-list a {
+    font-size: 1rem;
+    padding: 5px 15px;
+}
+
+/* Hero секция */
+.hero {
+    background: linear-gradient(135deg, #FFC4C4 0%, #E36D6D 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(109, 58, 58, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.95;
+}
+
+/* Секция разработчиков */
+.developers {
+    padding: 80px 0;
+    background-color: #FFEEEE;
+    overflow: visible;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #6D3A3A;
+    margin-bottom: 50px;
+}
+
+/* ОСНОВНЫЕ СТИЛИ КАРУСЕЛИ */
+.owl-carousel {
+    position: relative;
+    padding: 30px 0 60px;
+}
+
+/* Контейнер для слайдов */
+.owl-stage {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Стили для всех слайдов */
+.owl-item {
+    transition: all 0.5s ease;
+    opacity: 0.6;
+    transform: scale(0.85);
+    z-index: 1;
+}
+
+/* Стили для центрального слайда */
+.owl-item.center {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+}
+
+/* Карточка разработчика */
+.developer-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(227, 109, 109, 0.15);
+    transition: all 0.5s ease;
+    cursor: pointer;
+    margin: 10px;
+    border: 2px solid transparent;
+}
+
+/* Центральная карточка - дополнительное выделение */
+.owl-item.center .developer-card {
+    border-color: #E36D6D;
+    box-shadow: 0 15px 40px rgba(227, 109, 109, 0.3);
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(227, 109, 109, 0.25);
+}
+
+.developer-image {
+    width: 180px;
+    height: 180px;
+    margin: 30px auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #FFC4C4;
+    transition: all 0.5s ease;
+}
+
+.owl-item.center .developer-image {
+    border-color: #E36D6D;
+    border-width: 5px;
+    transform: scale(1.05);
+}
+
+.developer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.developer-card:hover .developer-image img {
+    transform: scale(1.1);
+}
+
+.developer-name {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #6D3A3A;
+    margin: 10px 0 5px;
+    transition: all 0.5s ease;
+}
+
+.owl-item.center .developer-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #E36D6D;
+}
+
+.developer-role {
+    text-align: center;
+    color: #E36D6D;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    transition: all 0.5s ease;
+}
+
+.owl-item.center .developer-role {
+    font-size: 1.1rem;
+    color: #6D3A3A;
+    font-weight: 500;
+}
+
+/* ТОЧКИ НАВИГАЦИИ */
+.owl-dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.owl-dot span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #FFC4C4 !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.owl-dot.active span {
+    background: #E36D6D !important;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(227, 109, 109, 0.5);
+}
+
+.owl-dot:hover span {
+    background: #E36D6D !important;
+}
+
+/* Кнопка CTA */
+.cta-section {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(135deg, #FFC4C4 0%, #E36D6D 100%);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 20px 60px;
+    background-color: white;
+    color: #6D3A3A;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(227, 109, 109, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(227, 109, 109, 0.4);
+    background-color: #FFEEEE;
+}
+
+/* ПОДВАЛ */
+.footer {
+    background-color: #E36D6D;
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.footer-links a:hover {
+    background-color: #FFC4C4;
+    color: #6D3A3A;
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    text-align: center;
+    opacity: 0.9;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    width: 100%;
+}
+
+/* Стили для страницы списка задач */
+.task-grid-section {
+    padding: 60px 0;
+    background-color: #FFEEEE;
+}
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.task-card {
+    display: block;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #6D3A3A;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(227, 109, 109, 0.2);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(227, 109, 109, 0.3);
+    background-color: #FFEEEE;
+    border-color: #E36D6D;
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+    .developer-image {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .developer-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .owl-item.center .developer-image {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .developer-name {
+        font-size: 1.2rem;
+    }
+    
+    .owl-item.center .developer-name {
+        font-size: 1.4rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .footer-links a {
+        margin: 0;
+    }
+}
+/* Стили для страницы "О нас" */
+.team-info {
+    padding: 60px 0;
+    background-color: #FFEEEE;
+}
+
+.info-block {
+    padding: 50px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(227, 109, 109, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(227, 109, 109, 0.2);
+}
+
+/* Темный блок */
+.info-block-dark {
+    background: linear-gradient(135deg, #E36D6D 0%, #c45a5a 100%);
+    color: white;
+}
+
+.info-block-dark .info-name {
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.info-block-dark .info-role {
+    color: #FFEEEE;
+}
+
+.info-block-dark .info-list li {
+    color: white;
+}
+
+.info-block-dark .info-list li::before {
+    color: #FFC4C4;
+}
+
+/* Светлый блок */
+.info-block-light {
+    background: white;
+    color: #6D3A3A;
+    border: 2px solid #FFC4C4;
+}
+
+.info-block-light .info-name {
+    color: #E36D6D;
+    border-bottom-color: #FFC4C4;
+}
+
+.info-block-light .info-role {
+    color: #6D3A3A;
+}
+
+.info-block-light .info-list li {
+    color: #6D3A3A;
+}
+
+.info-block-light .info-list li::before {
+    color: #E36D6D;
+}
+
+/* Контент внутри блоков */
+.info-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+    font-weight: 600;
+}
+
+.info-role {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.info-list li::before {
+    content: "•";
+    position: absolute;
+    left: 10px;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Адаптивность для информационных блоков */
+@media (max-width: 767px) {
+    .info-block {
+        padding: 30px 20px;
+    }
+    
+    .info-name {
+        font-size: 1.5rem;
+    }
+    
+    .info-role {
+        font-size: 1.1rem;
+    }
+    
+    .info-list li {
+        font-size: 1rem;
+        padding-left: 25px;
+    }
+}
+
+/* Стили для галереи команды (на странице "О нас") */
+.team-gallery {
+    padding: 60px 0;
+    background-color: #FFEEEE;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(227, 109, 109, 0.15);
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 25px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(227, 109, 109, 0.25);
+}
+
+.team-image {
+    width: 180px;
+    height: 180px;
+    min-width: 180px; /* Фиксированная ширина */
+    min-height: 180px; /* Фиксированная высота */
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #FFC4C4;
+    flex-shrink: 0; /* Запрещаем сжиматься */
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Важно! Заставляет фото заполнить контейнер, обрезая лишнее */
+    display: block;
+}
+
+.team-name {
+    font-size: 1.3rem;
+    color: #6D3A3A;
+    margin: 10px 0 5px;
+    font-weight: 600;
+}
+
+.team-role {
+    color: #E36D6D;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Адаптивность для галереи */
+@media (max-width: 900px) {
+    .team-grid {
+        gap: 20px;
+    }
+    
+    .team-image {
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 767px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 350px;
+    }
+    
+    .team-image {
+        width: 160px;
+        height: 160px;
+        min-width: 160px;
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-image {
+        width: 140px;
+        height: 140px;
+        min-width: 140px;
+        min-height: 140px;
+    }
+}
+/* Выделение для тимлида (в центре) */
+.team-card-lead {
+    transform: scale(1.05);
+    border: 3px solid #E36D6D;
+    box-shadow: 0 15px 40px rgba(227, 109, 109, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.team-card-lead .team-image {
+    border-color: #E36D6D;
+    border-width: 5px;
+}
+
+.team-card-lead .team-name {
+    color: #E36D6D;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.team-card-lead .team-role {
+    color: #6D3A3A;
+    font-weight: 600;
+}
+
+.team-card-lead:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+/* Адаптивность для тимлида */
+@media (max-width: 767px) {
+    .team-card-lead {
+        transform: scale(1);
+        order: -1; /* На мобилке тимлид будет первым */
+    }
+    
+    .team-card-lead:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Стили для страницы со списком задач */
+.tasks-showcase {
+    padding: 40px 0 80px;
+    background-color: #FFEEEE;
+}
+
+.tasks-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.2rem;
+    color: #6D3A3A;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(227, 109, 109, 0.15);
+    border: 2px solid #FFC4C4;
+}
+
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.task-item {
+    background: white;
+    border-radius: 20px;
+    padding: 25px 20px;
+    text-decoration: none;
+    color: #6D3A3A;
+    box-shadow: 0 10px 25px rgba(227, 109, 109, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FFC4C4, #E36D6D, #FFC4C4);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(227, 109, 109, 0.25);
+    border-color: #E36D6D;
+}
+
+.task-item:hover::before {
+    transform: translateX(0);
+}
+
+.task-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FFC4C4, #E36D6D);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 10px rgba(227, 109, 109, 0.3);
+}
+
+.task-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #6D3A3A;
+    font-weight: 600;
+}
+
+.task-description {
+    color: #886060;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.task-footer {
+    margin-top: auto;
+    border-top: 1px solid #FFC4C4;
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.task-status {
+    background-color: #FFEEEE;
+    color: #E36D6D;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid #FFC4C4;
+}
+
+.task-item:hover .task-status {
+    background: linear-gradient(135deg, #FFC4C4, #E36D6D);
+    color: white;
+    border-color: transparent;
+}
+
+/* Адаптивность для списка задач */
+@media (max-width: 767px) {
+    .tasks-intro {
+        font-size: 1rem;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .tasks-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .task-item {
+        padding: 20px;
+    }
+    
+    .task-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .task-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .tasks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
