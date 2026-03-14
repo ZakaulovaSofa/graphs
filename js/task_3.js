@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startButton');
 
     if (!inputBlockContent || !outputPre || !startButton) {
-        console.error('Не найдены нужные элементы страницы для task_1.js');
+        console.error('Не найдены нужные элементы страницы для task_3.js');
         return;
     }
 
@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const rawText = document.getElementById('adjacencyListInput').value;
             const graph = parseAndValidateAdjacencyList(rawText);
-            const dfsResult = runFullDFS(graph);
+            const bfsResult = runFullBFS(graph);
 
-            outputPre.textContent = formatDFSResult(graph, dfsResult);
-            renderTask1Graph(graph, dfsResult);
+            outputPre.textContent = formatBFSResult(graph, bfsResult);
+            renderTask3Graph(graph, bfsResult);
         } catch (error) {
             outputPre.textContent = `Ошибка:\n${error.message}`;
             renderGraphError('cy', error.message);
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function buildInputUI(container) {
     container.innerHTML = `
-        <div class="task1-input-wrapper">
+        <div class="task3-input-wrapper">
             <label for="adjacencyListInput" style="display:block; margin-bottom:10px; font-weight:600;">
                 Введите граф списками смежности
             </label>
@@ -40,17 +40,17 @@ function buildInputUI(container) {
                 style="width:100%; resize:vertical; padding:12px; box-sizing:border-box; font-family:monospace;"
                 placeholder="Пример:
 1: 2 3
-2: 1 4
-3: 1
+2: 1 4 5
+3: 1 6
 4: 2
-5: 6
-6: 5"
+5: 2
+6: 3"
             >1: 2 3
-2: 1 4
-3: 1
+2: 1 4 5
+3: 1 6
 4: 2
-5: 6
-6: 5</textarea>
+5: 2
+6: 3</textarea>
 
             <div style="margin-top:12px; line-height:1.6;">
                 <p style="margin:0 0 8px 0;"><b>Формат ввода:</b></p>
@@ -58,18 +58,17 @@ function buildInputUI(container) {
                 <p style="margin:6px 0 0 0; font-family:monospace;">номер_вершины: сосед1 сосед2 сосед3</p>
                 <p style="margin:8px 0 0 0;">Например:</p>
                 <pre style="margin:6px 0 0 0; padding:10px; background:#f6f6f6; overflow:auto;">1: 2 3
-2: 1 4
-3: 1
+2: 1 4 5
+3: 1 6
 4: 2
-5: 6
-6: 5</pre>
+5: 2
+6: 3</pre>
             </div>
         </div>
     `;
 }
 
-
-function runFullDFS(graph) {
+function runFullBFS(graph) {
     const n = graph.length - 1;
     const used = Array(n + 1).fill(false);
     const components = [];
@@ -79,7 +78,7 @@ function runFullDFS(graph) {
     for (let v = 1; v <= n; v++) {
         if (!used[v]) {
             const currentComponent = [];
-            dfs(graph, used, v, currentComponent, visitOrder, componentNumber);
+            bfs(graph, used, v, currentComponent, visitOrder);
             components.push({
                 index: componentNumber,
                 vertices: currentComponent
@@ -100,38 +99,43 @@ function runFullDFS(graph) {
     };
 }
 
-function dfs(graph, used, current, currentComponent, visitOrder, componentNumber) {
-    used[current] = true;
-    currentComponent.push(current);
-    visitOrder.push(current);
+function bfs(graph, used, start, currentComponent, visitOrder) {
+    const queue = [];
+    queue.push(start);
+    used[start] = true;
 
-    for (const neighbour of graph[current]) {
-        if (!used[neighbour]) {
-            dfs(graph, used, neighbour, currentComponent, visitOrder, componentNumber);
+    while (queue.length > 0) {
+        const top = queue.shift();
+        currentComponent.push(top);
+        visitOrder.push(top);
+
+        for (const to of graph[top]) {
+            if (!used[to]) {
+                queue.push(to);
+                used[to] = true;
+            }
         }
     }
 }
 
-function formatDFSResult(graph, dfsResult) {
+function formatBFSResult(graph, bfsResult) {
     const lines = [];
 
-    lines.push('Обход графа в глубину:');
+    lines.push('Обход графа в ширину:');
     lines.push('');
 
-    for (const component of dfsResult.components) {
+    for (const component of bfsResult.components) {
         lines.push(`Компонента связности №${component.index}`);
         lines.push(component.vertices.join(' '));
         lines.push('');
     }
 
-    lines.push(`Общее число компонент связности: ${dfsResult.components.length}`);
-    lines.push(`Общий порядок посещения вершин: ${dfsResult.visitOrder.join(' ')}`);
-
-    lines.push('');
+    lines.push(`Общее число компонент связности: ${bfsResult.components.length}`);
+    lines.push(`Общий порядок посещения вершин: ${bfsResult.visitOrder.join(' ')}`);
     return lines.join('\n');
 }
 
-function buildCytoscapeElements(graph, dfsResult) {
+function buildCytoscapeElements(graph, bfsResult) {
     const elements = [];
     const n = graph.length - 1;
     const addedEdges = new Set();
@@ -141,7 +145,7 @@ function buildCytoscapeElements(graph, dfsResult) {
             data: {
                 id: String(v),
                 label: String(v),
-                order: dfsResult.orderMap[v] || 0
+                order: bfsResult.orderMap[v] || 0
             }
         });
     }
@@ -168,7 +172,7 @@ function buildCytoscapeElements(graph, dfsResult) {
     return elements;
 }
 
-function getTask1Style() {
+function getTask3Style() {
     const style = getDefaultCytoscapeStyle().slice();
 
     style.push({
@@ -182,21 +186,23 @@ function getTask1Style() {
     return style;
 }
 
-function renderTask1Graph(graph, dfsResult) {
-    const elements = buildCytoscapeElements(graph, dfsResult);
+function renderTask3Graph(graph, bfsResult) {
+    const elements = buildCytoscapeElements(graph, bfsResult);
 
     const cy = renderGraphInContainer('cy', elements, {
-        style: getTask1Style()
+        style: getTask3Style()
     });
 
     if (!cy) {
         return;
     }
 
-    animateDFS(cy, dfsResult.visitOrder);
+    animateBFSOrder(cy, bfsResult.visitOrder);
 }
 
-function highlightDFSOrder(cy, visitOrder) {
+function animateBFSOrder(cy, visitOrder) {
+    const delay = 700;
+
     cy.nodes().forEach(node => {
         node.style({
             'background-color': '#E36D6D',
@@ -214,57 +220,17 @@ function highlightDFSOrder(cy, visitOrder) {
 
     for (let i = 0; i < visitOrder.length; i++) {
         const vertex = String(visitOrder[i]);
-        const node = cy.getElementById(vertex);
 
-        if (node) {
-            node.style({
-                'background-color': getStepColor(i, visitOrder.length),
-                'border-color': '#8f3d3d',
-                'border-width': 4
-            });
-        }
-    }
-}
-
-function getStepColor(index, total) {
-    if (total <= 1) {
-        return '#E36D6D';
-    }
-
-    const start = {r: 227, g: 109, b: 109};
-    const end = {r: 255, g: 196, b: 196};
-    const t = index / (total - 1);
-
-    const r = Math.round(start.r + (end.r - start.r) * t);
-    const g = Math.round(start.g + (end.g - start.g) * t);
-    const b = Math.round(start.b + (end.b - start.b) * t);
-
-    return `rgb(${r}, ${g}, ${b})`;
-}
-
-function animateDFS(cy, visitOrder) {
-    const delay = 800; // задержка между шагами (мс)
-
-    cy.nodes().forEach(node => {
-        node.style({
-            'background-color': '#E36D6D',
-            'border-width': 3,
-            'border-color': '#c45a5a'
-        });
-    });
-
-    visitOrder.forEach((vertex, index) => {
         setTimeout(() => {
+            const node = cy.getElementById(vertex);
 
-            const node = cy.getElementById(String(vertex));
-
-            node.style({
-                'background-color': '#ffd166',
-                'border-width': 5,
-                'border-color': '#ff9f1c'
-            });
-
-        }, index * delay);
-
-    });
+            if (node) {
+                node.style({
+                    'background-color': '#ffd166',
+                    'border-width': 5,
+                    'border-color': '#ff9f1c'
+                });
+            }
+        }, i * delay);
+    }
 }
