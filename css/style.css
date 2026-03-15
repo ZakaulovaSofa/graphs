@@ -1551,7 +1551,7 @@ body {
     width: 100%;
 }
 
-#adjacencyListInput {
+#adjacencyListInput, #pruferInput {
     border-color: #E36D6D;
     color: #6D3A3A;
     background-color: #FFEEEE;
