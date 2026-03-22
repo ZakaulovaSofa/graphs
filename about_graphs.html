@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О графах | Неориентированные графы</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container header-container">
+            <button class="burger-menu" id="burgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">Неориентированные графы</a>
+            </div>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li class="tasks-group">
+                    <span class="tasks-label">Задачи:</span>
+                    <ul class="tasks-list">
+                        <li><a href="task/task_0.html">Задача 0</a></li>
+                        <li><a href="task/task_1.html">Задача 1</a></li>
+                        <li><a href="task/task_2.html">Задача 2</a></li>
+                        <li><a href="task/task_3.html">Задача 3</a></li>
+                        <li><a href="task/task_4.html">Задача 4</a></li>
+                        <li><a href="task/task_5.html">Задача 5</a></li>
+                        <li><a href="task/task_6.html">Задача 6</a></li>
+                        <li><a href="task/task_7.html">Задача 7</a></li>
+                        <li><a href="task/task_8.html">Задача 8</a></li>
+                        <li><a href="task/task_9.html">Задача 9</a></li>
+                        <li><a href="task/task_10.html">Задача 10</a></li>
+                        <li><a href="task/task_11.html">Задача 11</a></li>
+                        <li><a href="task/task_12.html">Задача 12</a></li>
+                    </ul>
+                </li>
+                <li><a href="about_graphs.html" class="active">О графах</a></li>
+                <li><a href="about_graphs_library.html">Библиотека графов</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero секция -->
+        <section class="hero" style="padding: 60px 20px;">
+            <div class="container">
+                <h1 class="hero-title">Теория графов</h1>
+                <p class="hero-subtitle">Основные понятия и алгоритмы</p>
+            </div>
+        </section>
+
+        <!-- Блок 1: Основные определения -->
+        <section class="theory-section">
+            <div class="container">
+                <h2 class="theory-section-title">Основные определения</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Граф</h3>
+                        <p>Граф — это математическая структура, состоящая из множества вершин и рёбер, которые соединяют некоторые пары вершин.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Вершина</h3>
+                        <p>Вершина — это элемент графа, представляющий объект или точку, между которыми могут существовать связи.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Ребро</h3>
+                        <p>Ребро — это связь между двумя вершинами графа.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Связный граф</h3>
+                        <p>Связный граф — граф, в котором между любыми двумя вершинами существует путь.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Подграф</h3>
+                        <p>Подграф — это граф, вершины и рёбра которого являются подмножеством вершин и рёбер исходного графа.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 2: Виды графов -->
+        <section class="theory-section alt-bg">
+            <div class="container">
+                <h2 class="theory-section-title">Виды графов</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Неориентированный граф</h3>
+                        <p>Граф, в котором рёбра не имеют направления, то есть связь между вершинами является двусторонней.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Ориентированный граф</h3>
+                        <p>Граф, в котором каждому ребру задано направление от одной вершины к другой; путь по ребру можно проходить только в указанном направлении.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Взвешенный граф</h3>
+                        <p>Граф, в котором каждому ребру сопоставлено число (вес), например длина, стоимость или расстояние.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 3: Характеристики графа -->
+        <section class="theory-section">
+            <div class="container">
+                <h2 class="theory-section-title">Характеристики графа</h2>
+                <div class="theory-grid two-columns">
+                    <div class="theory-card">
+                        <h3>Степень вершины</h3>
+                        <p>Степень вершины – это количество рёбер, которые соединены с данной вершиной.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Компоненты связности</h3>
+                        <p>Компонента связности — это множество вершин графа, между любыми двумя из которых существует путь. Число компонент связности показывает, на сколько независимых частей распадается граф.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Эйлеровость</h3>
+                        <p>Граф называется эйлеровым, если существует цикл, проходящий по каждому ребру ровно один раз. Если такой путь существует, но он начинается и заканчивается в разных вершинах, граф называется полуэйлеровым.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Двудольность</h3>
+                        <p>Граф называется двудольным, если его вершины можно разбить на два множества так, что каждое ребро соединяет вершины из разных множеств. При этом внутри одного множества рёбер нет.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 4: Алгоритмы обхода -->
+        <section class="theory-section alt-bg">
+            <div class="container">
+                <h2 class="theory-section-title">Алгоритмы обхода графа</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Обход в глубину (DFS)</h3>
+                        <p>Способ обхода графа, при котором из текущей вершины алгоритм сначала идёт как можно дальше по одному пути, прежде чем возвращаться назад и рассматривать другие направления.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Обход в ширину (BFS)</h3>
+                        <p>Способ обхода графа, при котором сначала посещаются все вершины на расстоянии одного ребра от начальной вершины, затем на расстоянии двух рёбер и так далее. Такой обход выполняется по уровням.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 5: Остовные деревья -->
+        <section class="theory-section">
+            <div class="container">
+                <h2 class="theory-section-title">Остовные деревья</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Остов графа</h3>
+                        <p>Подграф, который содержит все вершины исходного графа и является связным, но не содержит циклов. Он образуется выбором некоторого набора рёбер графа.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Минимальное остовное дерево</h3>
+                        <p>Остов взвешенного графа, у которого сумма весов всех рёбер минимальна среди всех возможных остовов.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Алгоритм Прима</h3>
+                        <p>Жадный алгоритм построения минимального остовного дерева. Он начинает с одной вершины и на каждом шаге добавляет ребро минимального веса, которое соединяет уже построенную часть дерева с новой вершиной.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 6: Кратчайшие пути -->
+        <section class="theory-section alt-bg">
+            <div class="container">
+                <h2 class="theory-section-title">Кратчайшие пути</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Кратчайший путь</h3>
+                        <p>Путь между двумя вершинами графа, для которого сумма весов всех рёбер на этом пути минимальна среди всех возможных путей.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Алгоритм Дейкстры</h3>
+                        <p>Алгоритм поиска кратчайших путей от одной заданной вершины до всех остальных вершин во взвешенном графе с неотрицательными весами рёбер. На каждом шаге он выбирает вершину с наименьшим текущим расстоянием и обновляет расстояния до её соседей.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Алгоритм Флойда–Уоршалла</h3>
+                        <p>Алгоритм поиска кратчайших путей между всеми парами вершин во взвешенном графе. Он последовательно проверяет, можно ли сократить путь между двумя вершинами, проходя через промежуточные вершины.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 7: Деревья и кодирование -->
+        <section class="theory-section">
+            <div class="container">
+                <h2 class="theory-section-title">Деревья и кодирование Прюфера</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Дерево</h3>
+                        <p>Связный граф, не содержащий циклов. В дереве с n вершинами всегда ровно n−1 рёбер.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Кодирование Прюфера</h3>
+                        <p>Код Прюфера — это способ представления дерева последовательностью чисел длины n−2. Он строится путём последовательного удаления листьев дерева и записи их соседей.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Декодирование Прюфера</h3>
+                        <p>Процесс восстановления дерева по заданной последовательности Прюфера. На каждом шаге выбирается вершина, не входящая в последовательность, и соединяется с первым элементом последовательности.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 8: Раскраска графа -->
+        <section class="theory-section alt-bg">
+            <div class="container">
+                <h2 class="theory-section-title">Раскраска графа</h2>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3>Раскраска графа</h3>
+                        <p>Присвоение вершинам графа цветов так, чтобы любые две соседние вершины имели разные цвета.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Правильная раскраска</h3>
+                        <p>Такая раскраска графа, при которой ни одно ребро не соединяет вершины одного цвета.</p>
+                    </div>
+                    <div class="theory-card">
+                        <h3>Хроматическое число</h3>
+                        <p>Минимальное количество цветов, необходимое для правильной раскраски его вершин.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-links">
+                <a href="about_us.html">О нас</a>
+                <a href="about_the_conference.html">О конференции</a>
+                <a href="about_graphs.html">О графах</a>
+                <a href="about_graphs_library.html">Библиотека графов</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Неориентированные графы. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем скрипты -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/js_burger_and_owlcarousel.js"></script>
+</body>
+</html>

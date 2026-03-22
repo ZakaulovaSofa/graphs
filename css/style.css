@@ -1570,3 +1570,141 @@ body {
     color: #6D3A3A;
     border-color: #E36D6D;
 }
+
+/* ========== СТИЛИ ДЛЯ СТРАНИЦЫ "О ГРАФАХ" ========== */
+
+.theory-section {
+    padding: 60px 0;
+    background-color: #FFEEEE;
+}
+
+.theory-section.alt-bg {
+    background: white;
+}
+
+.theory-section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #6D3A3A;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.theory-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFC4C4, #E36D6D);
+}
+
+.theory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.theory-grid.two-columns {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.theory-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(227, 109, 109, 0.15);
+    border: 2px solid #FFC4C4;
+    transition: all 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(227, 109, 109, 0.25);
+    border-color: #E36D6D;
+}
+
+.theory-card h3 {
+    color: #E36D6D;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFC4C4;
+}
+
+.theory-card p {
+    color: #6D3A3A;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 767px) {
+    .theory-section {
+        padding: 40px 0;
+    }
+    
+    .theory-section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .theory-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .theory-grid.two-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .theory-card {
+        padding: 20px;
+    }
+    
+    .theory-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ========== СТИЛИ ДЛЯ БИБЛИОТЕКИ ГРАФОВ ========== */
+
+.library-intro {
+    padding: 20px 0 40px;
+    background-color: #FFEEEE;
+}
+
+.graph-preview {
+    margin: 20px 0;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graph-preview-placeholder {
+    background: #FFEEEE;
+    border: 2px dashed #FFC4C4;
+    border-radius: 12px;
+    padding: 35px 20px;
+    text-align: center;
+    width: 100%;
+    color: #E36D6D;
+    font-size: 0.9rem;
+}
+
+.graph-preview-placeholder p {
+    margin: 0;
+    color: #886060;
+}
+
+/* Для реальных изображений */
+.graph-preview img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+}
