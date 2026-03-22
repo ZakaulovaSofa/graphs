@@ -58,7 +58,8 @@
                     Кратчайшие пути от вершины
                 </h1>
                 <p class="task-description-main">
-                    Реализация алгоритма нахождения кратчайших путей от заданной вершины до остальных вершин графа (алгоритм Дейкстры).
+                    Реализация алгоритма нахождения кратчайших путей от заданной вершины до остальных вершин графа
+                    (алгоритм Дейкстры).
                 </p>
             </div>
         </section>
@@ -73,7 +74,7 @@
                         <div class="input-block" data-block="input">
                             <div class="block-header">
                                 <h2>Ввод данных</h2>
-                                <span class="block-description">Задайте граф одним из способов</span>
+                                <span class="block-description">Задайте граф списками смежности</span>
                             </div>
                             <div class="block-content">
                                 <!-- ⚠️ КОММЕНТАРИЙ ДЛЯ РАЗРАБОТЧИКА:
@@ -129,7 +130,7 @@
                         <div class="graph-block" data-block="graph">
                             <div class="block-header">
                                 <h2>Графическое представление графа</h2>
-                                <span class="block-description">Визуализация графа с помощью библиотеки</span>
+                                <span class="block-description">Визуализация графа</span>
                             </div>
                             <div class="graph-container">
                                 <!-- ⚠️ КОММЕНТАРИЙ ДЛЯ РАЗРАБОТЧИКА:
@@ -230,6 +231,8 @@
          - обновления визуализации
          - вывода результатов
     -->
-    <!-- <script src="js/task_0.js"></script> -->
+<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+<script src="../js/graph_renderer.js"></script>
+<script src="../js/task_8.js"></script>
 </body>
 </html>

@@ -1560,7 +1560,7 @@ body {
     background-color: #FFEEEE;
 }
 
-#graphDataTextarea, #componentsAnswerInput {
+#graphDataTextarea, #componentsAnswerInput, #startVertexInput {
     width: 100%;
     resize: vertical;
     padding: 12px;
